@@ -3871,7 +3871,7 @@
             },
             "attrs": {
               "text": {
-                "text": "routing tabl"
+                "text": "routing table"
               },
               "topLine": {
                 "strokeWidth": 1.5,
@@ -3970,7 +3970,7 @@
             "zIndex": 23,
             "data": {
               "type": "tm.Store",
-              "name": "routing table",
+              "name": "routing table ",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
