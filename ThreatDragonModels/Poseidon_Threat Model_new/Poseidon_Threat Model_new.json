@@ -4119,7 +4119,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Temperature D"
+                "text": "Temperature DB"
               },
               "topLine": {
                 "strokeWidth": 1.5,
@@ -4218,7 +4218,7 @@
             "zIndex": 25,
             "data": {
               "type": "tm.Store",
-              "name": "Temperature DB",
+              "name": "Temperature DB ",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
