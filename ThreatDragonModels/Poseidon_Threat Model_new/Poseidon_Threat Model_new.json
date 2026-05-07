@@ -1712,7 +1712,12 @@
               "cell": "ba4fbc79-6d46-4a8b-93fb-f9bf5679d6a7",
               "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 1140,
+                "y": 780
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -1994,7 +1999,16 @@
               "cell": "0904f1b9-2dc3-45e6-b31f-e0edc2c2996f",
               "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 1000,
+                "y": 770
+              },
+              {
+                "x": 950,
+                "y": 810
+              }
+            ]
           },
           {
             "shape": "flow",
