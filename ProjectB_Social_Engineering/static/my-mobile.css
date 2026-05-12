@@ -1,0 +1,128 @@
+/*
+   Aggiungere qui tutti i CSS custom dell'applicazione
+   NON modificare gli altri CSS
+   I CSS definiti qui vengono lessicograficamente dopo quelli di webcommons (Ateneo 2014)
+   e di conseguenza prevalgono (vedi le spefiche CSS per i dettagli: http://www.w3.org/TR/CSS2/ )
+   
+   É utile inserire in questo file gli stili per dispositivi MOBILE.
+*/
+.accedi_a
+{
+	font-size: 25px;
+	color: var(--pjc-polimi-base-color);
+}
+
+.navbar-default {
+	background-color: var(--pjc-polimi-neutral-white);
+	border-color: var(--pjc-polimi-neutral-white);
+}
+
+
+.Link {
+	padding-bottom: .8em;
+	padding-top: .8em;	
+}
+
+.container {  
+    display: grid;
+    padding-top: 1em;  
+}
+.aunicalogin-button-left {
+	float: left;
+}
+
+.aunicalogin-button-right{
+	float: right;
+}
+
+.aunicalogin-button-registra {
+	float: right;
+	padding-top:24px;
+}
+
+.aunicalogin-button-accedi {
+	float: left;
+	padding-top:10px;
+}
+
+.marginLeft{
+	margin-left: 1em;
+}
+
+#table-credenziali.fluidInfocard{
+	margin-top:5px;
+	height:200px;
+}
+
+a.btn-primary {
+	color: #fff;
+	font-family: Arial;
+}
+
+.ingresso {
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between; 
+}
+
+.ingressoFederato{
+	min-width: 250px;
+}
+
+.containerForm {
+	display: grid;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 15px;
+}
+
+.aunicalogin-label{
+	margin: 0;
+}
+
+/*se la dimnesione è almeno 600px carica queste regole*/
+@media only screen and (min-width: 600px) {
+	
+		#table-credenziali.fluidInfocard {
+			margin-top:0px;
+			height:200px;
+		}
+
+		.dimIgnore2Fattore{
+			width:100%;
+		}
+		
+		.container{
+			max-width: 600px;
+		}
+		
+		.ingresso{
+			flex-direction:row;
+		}
+		
+		.ingressoFederato{	
+			float: left;
+			width: 100%;
+			height:200px;
+		}
+		
+		.ingressoPolimi{
+			float: right;
+			width: 100%;
+			height:200px;			
+			padding-left:12px;
+		}
+
+	}
+/*** override*/
+.poli-banner-hamburger-menu-hidden {
+	display: none;
+}
+
+.polij-banner-hamburger-menu{
+	padding-right: 0px;
+}
+
+.Link {
+	font-size: 13px;
+}

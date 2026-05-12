@@ -1,0 +1,48 @@
+/*
+   Aggiungere qui tutti i CSS custom dell'applicazione
+   NON modificare gli altri CSS
+   I CSS definiti qui vengono lessicograficamente dopo quelli di webcommons (Ateneo 2014)
+   e di conseguenza prevalgono (vedi le spefiche CSS per i dettagli: http://www.w3.org/TR/CSS2/ )
+   
+   � utile inserire in questo file gli stili condivisi tra desktop e mobile.
+   Per gli stili dipendenti dal dispositivo � meglio usare fogli di stile separati.
+*/
+.nome_app_bold {
+	font-weight: bold;
+}
+
+.message-box {
+	padding: 1em;
+	background: #f3f3ee;
+	margin-bottom: 1em;
+	border: 1px solid #d5d5d5;
+}
+
+/*.spid-idp-button .spid-idp-button-menu li > a img.button-idp-logo-size-s*/
+.button_size_modern {	
+	width: 150% !important;
+}
+
+.help_servizio {
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;	
+	gap: 12px;
+}
+
+.loghi {
+	padding: 32px 0px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;	
+	gap: 12px;
+}
+
+.loghi > img {
+	height: 40px;
+}
+
+.sottoForm {
+	padding-bottom: 32px;
+}

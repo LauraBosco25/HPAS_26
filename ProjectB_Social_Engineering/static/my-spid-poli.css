@@ -1,0 +1,46 @@
+
+a.italia-it-button.button-spid {
+	color: #FFF;
+}
+
+.spid-idp-button, .spid-idp-button * {
+	box-sizing: initial;
+}
+
+.spid-agid-logo {
+	max-height: 35px;
+}
+.spid-login-card,
+.spid-login-card td {
+	border: none;
+}
+.spid-card-info p {
+	margin-top: 0;
+    font-family: "Titillium Web", Helvetica;
+    font-size: 1.3em;
+}
+.spid-link {
+	font-family: "Titillium Web", Helvetica;
+    font-size: 1.2em;
+}
+.spid-card-info,
+.spid-card-buttons {
+	vertical-align: top;
+}
+
+.italia-it-button.button-spid.button {
+    width: auto;
+}
+
+.italia-it-button.button-spid.button.left {
+    float: left;
+}
+
+.italia-it-button.button-spid.button.right {
+    float: right;
+}
+
+.spid-idp-div {
+	height: 400px;
+	overflow: hidden auto;
+}

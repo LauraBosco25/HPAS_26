@@ -1,0 +1,150 @@
+@import url("../spid/css/titillium.css");
+
+a.ingresso-federato-button.button-ingresso-federato {
+	color: var(--pjc-polimi-neutral-white);
+}
+
+.ingresso-federato-button, .ingresso-federato-button * {
+	box-sizing: initial;
+}
+
+.ingresso-federato-logo {
+	max-height: 35px;
+}
+.ingresso-federato-card-buttons {
+	vertical-align: top;
+}
+
+.ingresso-federato-login-card,
+.ingresso-federato-login-card td{
+	border: none;
+}
+
+.ingresso-federato-button {
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	color: var(--pjc-polimi-neutral-white);
+	font-family: "Titillium Web", HelveticaNeue, Helvetica Neue, Helvetica,
+		Arial, Lucida Grande, sans-serif;
+	font-weight: 600;
+	line-height: 1em;
+	text-decoration: none;
+	border: 0;
+	text-align: center;
+	cursor: pointer;
+	overflow: hidden
+}
+.ingresso-federato-button-icon-edug-right{
+	display: block;
+	padding: 0.6em 0.5em;
+}
+
+.ingresso-federato-button-icon, .ingresso-federato-button-text {
+	display: block;
+	float: left
+}
+
+.ingresso-federato-button-icon {
+	margin: 0 -.4em 0 0;
+	padding: 0.6em .8em .5em;
+	border-right: rgba(255, 255, 255, 0.1) 0.1em solid
+}
+
+.ingresso-federato-button-text {
+	padding: .95em 1em .85em 1em;
+	font-size: 1.15em;
+	text-align: center
+}
+
+svg {
+	width: 1.8em;
+	height: 1.8em;
+	fill: var(--pjc-polimi-neutral-white)
+}
+
+.ingresso-federato-it-block {
+	display: block
+}
+
+.ingresso-federato-button-size-m {
+	font-size: 15px;
+	width: 100%;
+}
+.ingresso-federato-button-size-edu-left {	
+	font-size: 15px;
+	width: 80%;
+}
+.ingresso-federato-button-size-edu-right {	
+	font-size: 15px;
+	width: 20%;
+	margin-left: 1px;
+}
+
+.ingresso-federato-button-size-m>span img {
+	width: 29px;
+	height: 29px;
+	border: 0
+}
+
+.ingresso-federato-button-size-edu-left>span img {
+	width: 29px;
+	height: 29px;
+	border: 0
+}
+
+.ingresso-federato-button-size-edu-right>span img {
+	width: 29px;
+	height: 29px;
+	border: 0
+}
+
+.button-ingresso-federato {
+	background-color:var(--pjc-polimi-accent-1);
+	border-color:var(--pjc-polimi-accent-1);
+	color: var(--pjc-polimi-neutral-white);;
+}
+
+/** INIZIO override colori dei bottini di spid */
+.button-spid {
+	background-color: var(--pjc-polimi-accent-1);
+	border-color:var(--pjc-polimi-accent-1);
+	color:var(--pjc-polimi-neutral-white)
+}
+
+.button-spid:active {
+	color:var(--pjc-polimi-neutral-white);
+}
+
+.button-spid:hover {
+	background-color: var(--pjc-polimi-accent-1-dark);
+	border-color:var(--pjc-polimi-accent-1-dark);
+	color: var(--pjc-polimi-neutral-white);
+}
+/** FINE override colori dei bottini di spid */
+
+.button-ingresso-federato svg {
+	fill: var(--pjc-polimi-neutral-white)
+}
+
+.button-ingresso-federato:hover {
+	background-color:var(--pjc-polimi-accent-1-dark);
+	border-color: var(--pjc-polimi-accent-1-dark);
+	color: var(--pjc-polimi-neutral-white);
+}
+
+.button-ingresso-federato:active {	
+	color: #036
+}
+
+.ingresso-federato-button.button-ingresso-federato.button {
+    width: auto;
+}
+
+.ingresso-federato-button.button-ingresso-federato.button.left {
+    float: left;
+}
+
+.ingresso-federato-button.button-ingresso-federato.button.right {
+    float: right;
+}
