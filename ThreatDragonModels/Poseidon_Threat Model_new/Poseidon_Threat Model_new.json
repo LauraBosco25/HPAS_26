@@ -3876,12 +3876,12 @@
           },
           {
             "position": {
-              "x": 1084,
-              "y": 555
+              "x": 1034,
+              "y": 540
             },
             "size": {
-              "width": 60,
-              "height": 60
+              "width": 100,
+              "height": 80
             },
             "attrs": {
               "text": {
