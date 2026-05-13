@@ -155,7 +155,7 @@
                   "severity": "TBD",
                   "type": "Repudiation",
                   "description": "Mobus TCP lacks of authentication and integrity: an attacker can easily spoof the AI Captain IP if it reaches the OT network by requesting the ID's of who is connetcted though the modbus tcp. Then it can erease the register table and proceed to interact with the targeted victim (ECU) by identifying itself as the legitimate AI Captain",
-                  "mitigation": "",
+                  "mitigation": "To ensure the audit trail of request, the system should implement an append-only DB for the logs of participants, which is computed by a cryptographically signed logging ( so that in case of an issue it is possible to retrieve the identity of the sender).",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 15,
@@ -173,13 +173,39 @@
                   "new": false,
                   "number": 16,
                   "score": ""
+                },
+                {
+                  "id": "b61a6061-7bcb-48b0-a3d9-85f5d9921097",
+                  "title": "Modbus AI Captain Injection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "AI Captian might receive Modbus data packet tampered by an attacker as this protocol lacks of integrity check and authentication. An attacker, performing as a MITM, can change the ECU response (e.g. letting the AI CAptain receiving a false velocity) .",
+                  "mitigation": "Migro-segmentation of the OT network + NIDS monitoring \n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                },
+                {
+                  "id": "2c67d269-2933-4841-9b04-f72b56aaab7d",
+                  "title": "Modbus AI Captain Eavesdropping",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Data flow directed to AI Captain is not encrypted over Modbus TCP, thus an attacker can sniff or eavesdrop any information from ECU to AI Captain if it has access to OT network.",
+                  "mitigation": "Migro-segmentation of the OT network + NIDS monitoring \n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 2,
-                "tampering": 0,
-                "repudiation": 1,
-                "informationDisclosure": 0,
+                "tampering": 1,
+                "repudiation": 3,
+                "informationDisclosure": 1,
                 "denialOfService": 1,
                 "elevationOfPrivilege": 0
               }
@@ -4650,6 +4676,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 16
+    "threatTop": 20
   }
 }
