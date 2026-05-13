@@ -31,8 +31,8 @@
                 "text": "AI Captain"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -129,12 +129,60 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "d19c1a00-b7f1-4624-adff-34f30a94cfbf",
+                  "title": "Modbus AI Captain ID spoofing",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Mobus TCP lacks of authentication and integrity: an attacker can easily spoof the AI Captain IP if it reaches the OT network by requesting the ID's of who is connetcted though the modbus tcp. Then it can erease the register table and proceed to interact with the targeted victim (ECU) by identifying itself as the legitimate AI Captain",
+                  "mitigation": "Micro-segmentation over OT network + allow-list of function code depending on sender ID ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "aed2171a-ffaa-4769-ab3d-5cad64d456e9",
+                  "title": "Modbus AI Captain no audit trail of  request ",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Mobus TCP lacks of authentication and integrity: an attacker can easily spoof the AI Captain IP if it reaches the OT network by requesting the ID's of who is connetcted though the modbus tcp. Then it can erease the register table and proceed to interact with the targeted victim (ECU) by identifying itself as the legitimate AI Captain",
+                  "mitigation": "",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                },
+                {
+                  "id": "191d6f98-3e61-4052-b337-65e61109ffd7",
+                  "title": "Modbus AI Captain DoS ",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "AI Captian might not be able to provide request to the ECU via the Modbus TCP if it flooded by request from other sensors.",
+                  "mitigation": "Apply a threshold rate of request from all sensors so that the AI Captain will not be blocked by flooding. Interaction from different sensors requires to be managed according to their priority.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -768,7 +816,7 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "As authentication is not implemented in Modbus TCP the ECU is subject to repudiation as the received requests authenticity is not ensured by the protocol.",
+                  "description": "As authentication is not implemented in Modbus TCP the AI Captain suffers from insufficient logging: thus, it is not possible to check if a problematic request has been issued by a legitimate component or a malicious one. ",
                   "mitigation": "To ensure the audit trail of request, the system should implement a DB for the requests and a logging process for the participants ( so that in case of an issue it is possible to retrieve the identity of the sender).",
                   "modelType": "STRIDE",
                   "new": false,
@@ -818,10 +866,10 @@
                   "id": "339e2a03-aaeb-40db-9d39-f4a5357604fb",
                   "title": "ECU Register Eavesdrop",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Tampering",
-                  "description": "As there is no authentication or check of integrity over a received request, an attacker can inject a legitimate AI Captain request and overide the function code to obtain a desired behaviour .",
-                  "mitigation": "",
+                  "description": "As there is no authentication or check of integrity over a received request, an attacker can access the ECU register values by sending/tampering a request to the ECU and using the Function Code related to the read holding register (e.g. current velocity, rpm...).",
+                  "mitigation": "Apply an allowed-function code list over a OT Firewall in combination with a OT micro-segmentation: This will ensure that certain request (e.g write) will be allowed iff sent by the legitimate AI Captain, and that the data flows only through AI Captain and ECU and no futher entity. ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 13,
@@ -830,8 +878,8 @@
               ],
               "threatFrequency": {
                 "spoofing": 1,
-                "tampering": 5,
-                "repudiation": 1,
+                "tampering": 7,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 1,
                 "elevationOfPrivilege": 2
@@ -2722,8 +2770,8 @@
             },
             "vertices": [
               {
-                "x": 450,
-                "y": 780
+                "x": 470,
+                "y": 875
               },
               {
                 "x": 470,
@@ -2747,7 +2795,7 @@
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "visible": true,
@@ -2841,7 +2889,7 @@
               "name": "S\natellite",
               "description": "",
               "isTrustBoundary": false,
-              "outOfScope": false,
+              "outOfScope": true,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
@@ -2864,7 +2912,7 @@
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "visible": true,
@@ -2958,7 +3006,7 @@
               "name": "Vessels ",
               "description": "",
               "isTrustBoundary": false,
-              "outOfScope": false,
+              "outOfScope": true,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
@@ -3215,7 +3263,7 @@
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "visible": true,
@@ -3309,7 +3357,7 @@
               "name": "INTERNET\n ",
               "description": "",
               "isTrustBoundary": false,
-              "outOfScope": false,
+              "outOfScope": true,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
@@ -4602,6 +4650,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 13
+    "threatTop": 16
   }
 }
