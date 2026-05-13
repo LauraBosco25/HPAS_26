@@ -632,8 +632,8 @@
                 "text": "ECU"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -730,17 +730,117 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "cb97b78a-6a55-479f-b5ca-6ee790861e5b",
+                  "title": "AI Captain Impersonation through Modbus",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Modbus TCP is protocol that lacks of authentication and encryption, thus if an attacker can apply spoofing to imitate a legitimate network component by sniffing its ID, to send un-authenticated data. ",
+                  "mitigation": "Micro-segmentation over OT network + allow-list of function code depending on sender ID ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "id": "f006ae04-2d5a-47af-951a-9a18d1699ae4",
+                  "title": "AI Request Tampering ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "As there is no authentication or check of integrity over a received request, an attacker can inject a legitimate AI Captain request and overide the function code to obtain a desired behaviour .",
+                  "mitigation": "",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "bf8b9a67-94c0-4e96-93e7-be29dac640ef",
+                  "title": "ECU no audit trail of received request ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "As authentication is not implemented in Modbus TCP the ECU is subject to repudiation as the received requests authenticity is not ensured by the protocol.",
+                  "mitigation": "To ensure the audit trail of request, the system should implement a DB for the requests and a logging process for the participants ( so that in case of an issue it is possible to retrieve the identity of the sender).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "0b1677d2-165f-4250-87b7-80545f967b72",
+                  "title": "PCL  ECU register overwriting ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "As there is no authentication or check of integrity over a received request, an attacker can scan the OT network and find the PCL port. Thus, it can tamper a request from the AI Captain to override the PCL firmware by changing ECU register values.",
+                  "mitigation": "Engineering port physically disabled at least during travelling + requires two-person authorization to physically access it.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                },
+                {
+                  "id": "277e4212-821d-43d2-87f0-92b077974b5a",
+                  "title": "Accessing through Engineering port to  overide security logic of PLC ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "As there is no authentication or check of integrity over a received request, an attacker can scan the OT network and find the PCL port and its hardware finger print.  Then it can use the vendor software to override completely the PLC logic.",
+                  "mitigation": "Engineering port physically disabled at least during travelling + requires two-person authorization to physically access it.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "e8bdbe57-b2ac-4d3e-909a-80e3ea6ae980",
+                  "title": "ECU overflooding ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "As there is no authentication or check of integrity over a received request, an attacker can scan the OT network and find the PCL port and its hardware finger print. ",
+                  "mitigation": "Engineering port physically disabled at least during travelling + requires two-person authorization to physically access it.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "339e2a03-aaeb-40db-9d39-f4a5357604fb",
+                  "title": "ECU Register Eavesdrop",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "As there is no authentication or check of integrity over a received request, an attacker can inject a legitimate AI Captain request and overide the function code to obtain a desired behaviour .",
+                  "mitigation": "",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 5,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 2
+              }
             }
           },
           {
             "position": {
-              "x": 83.99999999999955,
+              "x": 53.999999999999545,
               "y": 625
             },
             "size": {
@@ -1692,58 +1792,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Modbus TCP",
-              "description": "connection between ecu and ai captain ",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": true,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "Modbus TCP ",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Modbus TC"
-            ],
-            "id": "848faf99-e12d-413b-a6c4-1ca182550fbc",
-            "source": {
-              "cell": "b68443a8-284a-4c2b-afaf-f9fce74906f9",
-              "port": "990610a2-b14a-4ba5-8353-33e635a2d45d"
-            },
-            "target": {
-              "cell": "4f4c8ec7-c726-416b-9a39-0e968536867b",
-              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
-            },
-            "vertices": [
-              {
-                "x": 510,
-                "y": 780
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": "block"
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "VSAT Private channel ",
               "description": "",
               "outOfScope": false,
@@ -2432,7 +2480,6 @@
               "cell": "67bc2611-7f4c-41e5-83f8-292cdf5f12e9",
               "port": "2ec14387-bcd5-4fca-8916-ab024766e993"
             },
-            "vertices": [],
             "tools": {
               "items": [
                 "boundary",
@@ -2532,7 +2579,8 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -2580,6 +2628,108 @@
               "port": "99ca4596-aa90-4de9-bced-b65b4f6b2f08"
             },
             "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Modbus TCP",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "7101caf9-123b-4375-9e53-037fcf6f49c2",
+                  "title": "Modbus Injection",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Modbus TCP does not have any authentication protocol. Thus, it is possible for an attacker to inject maliciously the data flow between AI Captain and ECU, with the scope to alter the Engine Controller values and security threshold. This attack exploits the usage of the function code in Modbus Data Packet.",
+                  "mitigation": "Apply an allowed-function code list over a OT Firewall in combination with a OT micro-segmentation: This will ensure that certain request (e.g write) will be allowed iff sent by the legitimate AI Captain, and that the data flows only through AI Captain and ECU and no futher entity. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "00dfd0d7-ea99-4610-b051-d47a1ea5b2e0",
+                  "title": "ModBus EavesDropping",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Modbus TCP is protocol that lacks of authentication and encryption, thus if an attacker can eavesdrop or sniff the data flow between components, it will understand every Modbus Data Packed content. ",
+                  "mitigation": "Network Micro-segmentation of OT will ensure that only authorized component can access the data flow over Modbus TCP ( e.g AI Captain and ECU) ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "20ed2978-accc-4f4b-926c-6415c627de0d",
+                  "title": "Modbus TCP Flooding",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Modbus TCP protocol, does not implement any threshold for the request rate over its channel. As this protocol works as a client-server protocol, a flooding request rate will result as a DoS",
+                  "mitigation": "Implementing a safe threshold rate over the OT network firewall will ensure to avoid this attack. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Modbus TCP"
+            ],
+            "id": "d62fbc5b-7566-40a3-8c77-6f13a211dcc2",
+            "source": {
+              "cell": "4f4c8ec7-c726-416b-9a39-0e968536867b",
+              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
+            },
+            "target": {
+              "cell": "b68443a8-284a-4c2b-afaf-f9fce74906f9",
+              "port": "4f3399f7-3bf4-41c8-80c7-7dd04a1137c4"
+            },
+            "vertices": [
+              {
+                "x": 450,
+                "y": 780
+              },
+              {
+                "x": 470,
+                "y": 770
+              }
+            ]
           },
           {
             "position": {
@@ -4342,6 +4492,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 29,
             "ports": {
               "groups": {
                 "top": {
@@ -4425,7 +4576,6 @@
               ]
             },
             "id": "5c77d182-2ef2-429f-b910-92c8a783a7c0",
-            "zIndex": 29,
             "data": {
               "type": "tm.Actor",
               "name": "Containers\n",
@@ -4452,6 +4602,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 2
+    "threatTop": 13
   }
 }
