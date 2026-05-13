@@ -225,8 +225,8 @@
                 "text": "NavUnit"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -323,12 +323,86 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "49928bfd-e4dd-49c2-a926-8bb4cfce2a77",
+                  "title": "Receiving false Position ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Attacker that can access the physical connection between GNSS receiver and NAVUnit can impersonate the gnss receiver and send a fake position. this will lead the ECDIS to record and anlayze the area related to the fake position",
+                  "mitigation": "physical access protection + NIDS + check coherency between last received positions\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                },
+                {
+                  "id": "2c351dcb-3e0c-487c-abe2-fcff1ae681a6",
+                  "title": "NavUnit navigation info disclousure ",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "if NavUnit does not provide access control to the navigation DB, allowing the attacker to extract important information",
+                  "mitigation": "enhanche security over NavUnit network so unauthorized access will not be able to retrieve navigation documentation. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": ""
+                },
+                {
+                  "id": "cb1747fe-9071-4bde-8395-6869402be9c0",
+                  "title": "GNSS position Lost",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "If the GNSS is not working properly (because of physical attack, low signal or satellite jamming)  NavUnit will not receive a proper updated position which will result in a DoS as the navigation system would not work properly. ",
+                  "mitigation": "protection of GNSS receiver + use an IMU dead-rocking measurement to provide an inertial position until the connection with the satellite is restored ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": ""
+                },
+                {
+                  "id": "3d34dfdc-071c-40a7-8e6c-015119a9ce54",
+                  "title": "NavUnit corruption because of gnss position",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "If NavUnit receives a tampered or spoofed position from GNSS receiver l, this position  will currupt the ECDIS navigation system.",
+                  "mitigation": "protection of GNSS receiver + use an IMU dead-rocking measurement to provide an inertial position until the connection to double check + alert if any incosistency arises ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                },
+                {
+                  "id": "210c4fe0-1f0d-4059-8b81-7aa681004cf1",
+                  "title": "ECDIS unauthorized access",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Elevation of privilege",
+                  "description": "If an attacker can access the navigation network via LAN, the interface of the ECDIS and overpass its security,  it can obtain an elevation of privilege by being able to access the navigation unit as admin level. this it can overwrite the navigation chart, position and communication DB, disabling navigation alerts...",
+                  "mitigation": "strong authentication for NavUnit management + firmware updated and verified + admin level accessible only from AI Captain or verified remote control. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 1,
+                "repudiation": 2,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -345,8 +419,8 @@
                 "text": "GNSS\n(Receiver)"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -443,12 +517,119 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "dfbbe7b9-92e5-46f4-904a-bb47b29367d8",
+                  "title": "Satellite Communication Jamming ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Satellite communication works on L-Band frequency, which are very weak signaling. An attacker can overpower the legitimate signal by using stronger signal and impersonating the legitimate satellite. Thus, the received signal will not allow the receiver to alculate its position.",
+                  "mitigation": "anti-jamming antenna + not relying on a single satellite but on a multi satellite constellation",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                },
+                {
+                  "id": "82529405-9cf4-4545-8f0b-76b44afaa891",
+                  "title": "GNSS  satellite signal not authenticated",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "Civillian Satellite signal is not verified by authentication nor digital signatur: thus, the receiver has no way to detect the legitimacy of the received signal.",
+                  "mitigation": "enable cryptographic signing and logging over gnss ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                },
+                {
+                  "id": "0ea86ca2-b013-4938-8b78-d6130bef7b9f",
+                  "title": "GNSS  receiver tampering ",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Internal/maintenance port of receiver might be subject to information disclosure attack as it might allow to retrieve internal information ",
+                  "mitigation": "physical access control to gnss receiver ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                },
+                {
+                  "id": "7196d876-b800-4250-8b6a-21a25b29e87c",
+                  "title": "GNSS receiver Disconnection ",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Denial of service",
+                  "description": "Physically disconnecting the receiver antenna will result in a D0s",
+                  "mitigation": "Physical protection over intentional and unintentional reaceiver antenna ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                },
+                {
+                  "id": "6aaa4e62-ee71-47cd-a8f9-0062ddbd1d1e",
+                  "title": "GNSS receiver DoS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "DoS of GNSS receiver can be obtained by jamming the receiver antenna using overpowering signals",
+                  "mitigation": "Anti-jamming antenna + multi satellite constallation ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
+                },
+                {
+                  "id": "7269ec95-9798-46a9-a2d0-524252ca12fb",
+                  "title": "Physically tampered GNSS receiver ",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "An attacker with physical access can modify the gnss receiver firmware so the ouput position will be inexact.",
+                  "mitigation": "Physical access security check including periodic firmware check",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": ""
+                },
+                {
+                  "id": "c68a388b-2b81-43be-97bd-9d421e2327cd",
+                  "title": "exploitation of firmware vulnerabilities ",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Elevation of privilege",
+                  "description": "Attacker can use malicious spoofed signal to exploit firmware vulnerabilities which might lead to a buffer overflow and thus the execution of malicious code ",
+                  "mitigation": "periodic firmware check and update + memory protection ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 5,
+                "tampering": 2,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 3,
+                "elevationOfPrivilege": 1
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1271,58 +1452,6 @@
               "privilegeLevel": "",
               "threats": []
             }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Satellite Location ",
-              "description": "Satellite position",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "RTCM",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Satellite Location"
-            ],
-            "id": "93cf25d7-577e-497f-a65f-31a2db9dbae4",
-            "source": {
-              "cell": "1efba8d0-2205-4964-a8c1-3b8136c482c8",
-              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
-            },
-            "target": {
-              "cell": "09c45b13-0cfe-4bbe-b0ca-004b1db41e5e",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
-            },
-            "vertices": [
-              {
-                "x": 168.75,
-                "y": 330
-              }
-            ]
           },
           {
             "shape": "flow",
@@ -2554,106 +2683,6 @@
               "cell": "67bc2611-7f4c-41e5-83f8-292cdf5f12e9",
               "port": "2ec14387-bcd5-4fca-8916-ab024766e993"
             },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            },
             "vertices": []
           },
           {
@@ -2802,6 +2831,99 @@
               {
                 "x": 470,
                 "y": 770
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Satellite Signal",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "ccaedc26-4e5d-4f0c-bee1-ab59a9ca5e85",
+                  "title": "Satellite Signal Disclousure",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Satellite signal has no encryption, so anyone receiving it has access to its information.",
+                  "mitigation": "not necessary as the communication is ment to be public ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                },
+                {
+                  "id": "cbc44c50-0f5c-4964-ac21-6677cc22ffb8",
+                  "title": "Satellite Communication Jamming ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Satellite communication works on L-Band frequency, which are very weak signaling. An attacker can overpower the legitimate signal by using stronger signal and impersonating the legitimate satellite. Thus, the received signal will not allow the receiver to alculate its position.",
+                  "mitigation": "anti-jamming antenna + not relying on a single satellite but on a multi satellite constellation",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "Satellite Signal"
+            ],
+            "id": "f64302b3-292f-4f78-bcda-2e08173fdfd8",
+            "source": {
+              "cell": "1efba8d0-2205-4964-a8c1-3b8136c482c8",
+              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
+            },
+            "target": {
+              "cell": "09c45b13-0cfe-4bbe-b0ca-004b1db41e5e",
+              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
+            },
+            "vertices": [
+              {
+                "x": 169,
+                "y": 260
+              },
+              {
+                "x": 120,
+                "y": 280
+              },
+              {
+                "x": 140,
+                "y": 360
               }
             ]
           },
@@ -4676,6 +4798,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 20
+    "threatTop": 38
   }
 }
