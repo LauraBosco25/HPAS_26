@@ -917,7 +917,7 @@
                 },
                 {
                   "id": "1bedf9f9-f5cb-4cbe-9dd7-28ce08bbcb4d",
-                  "title": "VSAT Terminal Pivoting/other",
+                  "title": "VSAT Terminal Pivoting",
                   "status": "Open",
                   "severity": "TBD",
                   "type": "Elevation of privilege",
@@ -961,10 +961,17 @@
                 "repudiation": 0,
                 "informationDisclosure": 1,
                 "denialOfService": 1,
-                "elevationOfPrivilege": 3
+                "elevationOfPrivilege": 4
               }
             },
-            "children": []
+            "children": [],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
+            }
           },
           {
             "position": {
