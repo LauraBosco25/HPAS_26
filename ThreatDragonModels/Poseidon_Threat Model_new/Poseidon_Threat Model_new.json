@@ -623,13 +623,6 @@
                 "denialOfService": 3,
                 "elevationOfPrivilege": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -754,8 +747,8 @@
           },
           {
             "position": {
-              "x": 1261.5,
-              "y": 340
+              "x": 1270.25,
+              "y": 345
             },
             "size": {
               "width": 110,
@@ -766,8 +759,8 @@
                 "text": "SatLink Terminal"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -864,12 +857,112 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "06020f43-cdd6-4382-9bcf-5d3f49aaad7f",
+                  "title": "PEP Proxy Spoofing",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Given that VSAT utilize performance proxies for TCP acceleration, an adversary could masquerade as the shore-based PEP server to intercept vessel handshakes.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                },
+                {
+                  "id": "03b3adef-de72-4461-8c19-56f750699407",
+                  "title": "Firmware Tampering",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Deploying malicious firmware to the vessel's VSAT modem to establish a persistent backdoor via external actors.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                },
+                {
+                  "id": "8957f2ff-c971-4c6c-83e2-b39fe80e7040",
+                  "title": "Exposed Interface Leakage",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "VSAT terminals exposing HTTP diagnostic interfaces to the public internet can reveal firmware versions and vessel coordinates.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 43,
+                  "score": ""
+                },
+                {
+                  "id": "c10b2572-c673-4781-99d5-9be9c7635456",
+                  "title": "Volumetric DDos",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Saturating the limited bandwidth of the maritime VSAT link by flooding the modem's public IP with junk packets like SYN floods.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 44,
+                  "score": ""
+                },
+                {
+                  "id": "1bedf9f9-f5cb-4cbe-9dd7-28ce08bbcb4d",
+                  "title": "VSAT Terminal Pivoting/other",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "Exploiting the satellite router to gain guest access and escalating to admin privileges. This allows lateral movement from IT communication systems to OT networks controlling propulsion.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 45,
+                  "score": ""
+                },
+                {
+                  "id": "5370c333-b960-496c-b14c-07a6a4585cc9",
+                  "title": "Traffic hijacking",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An attacker gaining access to the SatLink administrative interface could potentially modify the tunnel configuration to route traffic to a malicious external server\n",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 65,
+                  "score": ""
+                },
+                {
+                  "id": "70842e72-bd00-42b5-9c90-4b6c6a1b6644",
+                  "title": "Firmware Exploitation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "An attacker exploits a vulnerability in the SatLink's administrative interface to gain full control over the ship's external communications.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 71,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 4,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 3
+              }
             },
             "children": []
           },
@@ -1833,7 +1926,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1854,13 +1948,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "1a554881-6688-4771-a074-66eb76ef1e63",
+                  "title": "TCP Packet Tampering",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Absent robust end-to-end encryption over the VSAT link, attackers may alter packets in transit, potentially modifying waypoints or falsifying LiDAR sensor telemetry.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Data Flow"
@@ -1979,7 +2092,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2000,13 +2114,58 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": true,
               "isPublicNetwork": false,
               "protocol": "TCP/IP",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "1f375b7d-28e6-4e58-9403-6e12fba6fcf3",
+                  "title": "Telemetry Leakage",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Telemetry Leakage refers to the unauthorized interception or exposure of sensitive maritime data as it travels between the vessel and the RCC. ",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 51,
+                  "score": ""
+                },
+                {
+                  "id": "c7326eb5-676b-4ef1-b4db-2b438bbe261b",
+                  "title": "Unauthorized Directives",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "This threat involves an adversary transmitting illegitimate navigation or operational instructions to the vessel's onboard systems. An actor may falsify IP addresses or compromise the Remote Operations Center (RCC) to send these unauthorized directives to the onboard router.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 53,
+                  "score": ""
+                },
+                {
+                  "id": "885975eb-0ded-4fb0-b5e9-0a5ac659baf5",
+                  "title": "Signal jamming/bandwidth flooding",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "The VSAT link could disconnect the ship from the RCC, forcing the crew to take manual control.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 64,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 2
+              }
             },
             "labels": [
               "VSATPrivate channel "
@@ -2219,7 +2378,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2240,13 +2400,45 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "da693c8b-bfcb-46ff-bcda-5c7d2037f863",
+                  "title": "Bandwidth Exhaustion",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "High-bandwidth usage on the Crew Wi-Fi (e.g., Netflix streaming) could saturate the physical SatLink connection.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 60,
+                  "score": ""
+                },
+                {
+                  "id": "fea60cad-ece5-4c90-8014-112b93f9af9f",
+                  "title": "VLAN Hooping ",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Due to the shared physical antenna and router, a VLAN Hopping attack could allow crew members to sniff ship telemetry data from the Crew Wi-Fi network.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 62,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 2
+              }
             },
             "labels": [
               "Data Flow"
@@ -2494,53 +2686,6 @@
             "target": {
               "cell": "42fa359a-de13-46b8-9cdf-e221dab7a423",
               "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": "block"
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": true,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "4ae55753-c7ea-483b-a29c-e1cd56423881",
-            "source": {
-              "cell": "4f4c8ec7-c726-416b-9a39-0e968536867b",
-              "port": "990610a2-b14a-4ba5-8353-33e635a2d45d"
-            },
-            "target": {
-              "cell": "eaa8b460-ba3c-42c2-a08d-5b796f488a7f",
-              "port": "c620cd4d-8e9b-46ce-97dd-d5789d35735f"
             },
             "vertices": []
           },
@@ -2891,12 +3036,25 @@
                   "new": false,
                   "number": 22,
                   "score": ""
+                },
+                {
+                  "id": "13b970c8-f540-43c0-9161-7e3dbaeef3d4",
+                  "title": "RF Eavesdropping",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Given the vast satellite footprint, unencrypted TCP/IP traffic can be sniffed, exposing passwords, maritime telemetry, and cargo load plans.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 47,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 3,
                 "denialOfService": 1
               }
             },
@@ -2918,6 +3076,10 @@
                 "y": 260
               },
               {
+                "x": 140,
+                "y": 280
+              },
+              {
                 "x": 120,
                 "y": 280
               },
@@ -2926,6 +3088,53 @@
                 "y": 360
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "4ae55753-c7ea-483b-a29c-e1cd56423881",
+            "source": {
+              "cell": "4f4c8ec7-c726-416b-9a39-0e968536867b",
+              "port": "990610a2-b14a-4ba5-8353-33e635a2d45d"
+            },
+            "target": {
+              "cell": "eaa8b460-ba3c-42c2-a08d-5b796f488a7f",
+              "port": "c620cd4d-8e9b-46ce-97dd-d5789d35735f"
+            },
+            "vertices": []
           },
           {
             "position": {
@@ -3175,8 +3384,8 @@
                 "text": "RCC"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -3273,9 +3482,40 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "097aeb15-3bfe-4257-ab1c-6924b6699a84",
+                  "title": "RCC Spoofing",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An actor may falsify IP addresses or compromise Remote Operations Center to transmit unauthorized navigation directives to the onboard router",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 48,
+                  "score": ""
+                },
+                {
+                  "id": "b4cef2a7-8de3-4f69-a1b3-3241f7af9a4a",
+                  "title": "Repudiation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Lack of robust logging at the RCC could allow a remote operator to deny sending a command that caused a \"catastrophic failure\". (from the proposal file)",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 55,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -4313,8 +4553,8 @@
                 "text": "Main Router "
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -4411,12 +4651,60 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "010c4d91-1d24-414d-89f2-1402ac5ad7df",
+                  "title": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "Exploiting a vulnerability in the Main Router’s firmware from the Crew Wi-Fi VLAN to gain administrative access to the Engineering/OT subnet.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 57,
+                  "score": ""
+                },
+                {
+                  "id": "a102e77a-a7ef-48fa-8aa9-329f4b558737",
+                  "title": "ARP spoofing ",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker sends falsified ARP (Address Resolution Protocol) messages to link their MAC address with the IP address of the AI Captain or SatLink. This redirects traffic through the attacker's device, enabling a Man-in-the-Middle (MitM) attack.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 67,
+                  "score": ""
+                },
+                {
+                  "id": "6805775a-2d8c-4aa2-8491-59f6ff4c3c81",
+                  "title": "Tampering from the crew",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Physical access by the \"watch-keeping\" crew to the Main Router could allow for unauthorized configuration changes to the VLAN settings.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 68,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -4798,6 +5086,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 38
+    "threatTop": 71
   }
 }
