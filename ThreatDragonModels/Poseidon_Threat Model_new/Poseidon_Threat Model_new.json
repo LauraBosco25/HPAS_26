@@ -331,7 +331,7 @@
               "threats": [
                 {
                   "id": "49928bfd-e4dd-49c2-a926-8bb4cfce2a77",
-                  "title": "Receiving false Position ",
+                  "title": "Receiving false Position from GNSS",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Spoofing",
@@ -348,8 +348,8 @@
                   "status": "Open",
                   "severity": "Low",
                   "type": "Information disclosure",
-                  "description": "if NavUnit does not provide access control to the navigation DB, allowing the attacker to extract important information",
-                  "mitigation": "enhanche security over NavUnit network so unauthorized access will not be able to retrieve navigation documentation. ",
+                  "description": "if NavUnit does not provide access control to the navigation DB, allowing the attacker to extract important information if it can access via physical or network level, or via the GNSS receiver and AIS receiver",
+                  "mitigation": "enhanche security over NavUnit  network (NIDS + tamper evident cable + authentication between component)so unauthorized access will not be able to retrieve navigation documentation. ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 35,
@@ -383,7 +383,7 @@
                 },
                 {
                   "id": "210c4fe0-1f0d-4059-8b81-7aa681004cf1",
-                  "title": "ECDIS unauthorized access",
+                  "title": "ECDIS unauthorized access ",
                   "status": "Open",
                   "severity": "Critical",
                   "type": "Elevation of privilege",
@@ -393,21 +393,80 @@
                   "new": false,
                   "number": 38,
                   "score": ""
+                },
+                {
+                  "id": "3d0445fa-6bd7-4cd4-b475-fc767bcf623a",
+                  "title": "false AIS position",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "VHF lacks of inegrity and authentication. Thus, an attacker can imitate another vessel to trick the PoseidonX into belivieng there is  or there is not an immidiate ship in a certain position.",
+                  "mitigation": "implement also the usage of radar to double check ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 82,
+                  "score": ""
+                },
+                {
+                  "id": "02aa303b-34e1-4145-91fe-961ce50c9c3d",
+                  "title": "ECDIS currupted by false AIS position",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "if an attacker sends a fake position to AIS imitating the presence or the absence of a ship related to a certain position, the ECDIS navigation system will output decision based on uncorrect data.",
+                  "mitigation": "double check with radar the surroundings + check for AIS tampering at physical and network level to avoid unauthorized access ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 83,
+                  "score": ""
+                },
+                {
+                  "id": "a1b3f551-cc41-4194-aec3-6cded4113900",
+                  "title": "AIS communication Log lacking",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "As VHF lacks of authenticity and logging, it is not possible to verify who is the author of a certain message. Thus, an attacker could imitate a certain ship, and that ship has no way to repudiate the attacker actions.",
+                  "mitigation": "as the  AIS channel is meant to be public applying authentication process would distrupt the nature of this communication but it is possible to apply log using timestamps and WORM DB ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 84,
+                  "score": ""
+                },
+                {
+                  "id": "4b3fb25b-4ec2-42c9-985b-07e4594db2ed",
+                  "title": "AIS communication lost ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "AIS communication can be flooded by an attacker with false messages, so that the proper  communication between other vessels is interrupted. This could have catastrophical outcomes if our ship is not able to acknowledge the presence of an immidiate ship as the NavUnit wouldn't be able to use that info to calculate an emergency move",
+                  "mitigation": "implement also the usage of radar to double check presence of immediate ships + maximum flow rate for ais receiver ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 85,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 2,
-                "tampering": 1,
-                "repudiation": 2,
-                "informationDisclosure": 1,
-                "denialOfService": 1,
-                "elevationOfPrivilege": 1
+                "spoofing": 4,
+                "tampering": 2,
+                "repudiation": 3,
+                "informationDisclosure": 2,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 2
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
             "position": {
-              "x": 123.99999999999955,
+              "x": 93.99999999999955,
               "y": 455
             },
             "size": {
@@ -1262,7 +1321,7 @@
           },
           {
             "position": {
-              "x": 53.999999999999545,
+              "x": -226.00000000000045,
               "y": 625
             },
             "size": {
@@ -3090,20 +3149,8 @@
             },
             "vertices": [
               {
-                "x": 169,
+                "x": 138.75,
                 "y": 260
-              },
-              {
-                "x": 140,
-                "y": 280
-              },
-              {
-                "x": 120,
-                "y": 280
-              },
-              {
-                "x": 140,
-                "y": 360
               }
             ]
           },
@@ -3246,10 +3293,6 @@
               "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
             },
             "vertices": [
-              {
-                "x": 680,
-                "y": 410
-              },
               {
                 "x": 660,
                 "y": 430
@@ -4289,8 +4332,8 @@
           },
           {
             "position": {
-              "x": 1432,
-              "y": 965
+              "x": 1622,
+              "y": 655
             },
             "size": {
               "width": 120,
@@ -5206,6 +5249,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 81
+    "threatTop": 85
   }
 }
