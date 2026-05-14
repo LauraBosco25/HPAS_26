@@ -455,13 +455,6 @@
                 "denialOfService": 2,
                 "elevationOfPrivilege": 2
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1817,53 +1810,6 @@
             "target": {
               "cell": "c8865191-1b91-47ec-b128-cfb1b5a8773a",
               "port": "4961370e-90f3-430b-af44-6a7a1e3e6c9d"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "0cd0315f-0193-4bfe-ace8-a5ebe27b6899",
-            "source": {
-              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
-              "port": "4f3399f7-3bf4-41c8-80c7-7dd04a1137c4"
-            },
-            "target": {
-              "cell": "09c45b13-0cfe-4bbe-b0ca-004b1db41e5e",
-              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
             },
             "vertices": []
           },
@@ -3277,7 +3223,7 @@
               "threatFrequency": {
                 "tampering": 1,
                 "informationDisclosure": 2,
-                "denialOfService": 1
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -3919,7 +3865,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -3935,21 +3882,66 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "PoseidonX position\n",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "50626fa0-b74b-4fd6-a76b-fc360feee754",
+                  "title": "Gnss Position tampering ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "If an attacker has physical access to the connection or can modify it by accessing to the LAN, it can modify the data, letting the navigation system work with erroneus data. ",
+                  "mitigation": "protecting the LAN access by ensuring protection from unauthorized entity + NIDS + ensuring the communciation is authenticated and only between NavUnit and GNSS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 86,
+                  "score": ""
+                },
+                {
+                  "id": "f28295c1-57b2-4ea7-9ed6-7da53793d0ef",
+                  "title": "Gnss Position disclosure",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "an attacker with physical acces to the connection or via LAN access, can listen the data about ships's positions. ",
+                  "mitigation": "provide encryption and authentication  + NIDS to avoid unauthorized accesses + tamper evident connection \n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 87,
+                  "score": ""
+                },
+                {
+                  "id": "31dc9bac-dc4f-4950-b42a-4fe48ce63005",
+                  "title": "Gnss DoS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "If an attacker has physical access to the connection or can modify it by accessing to the LAN, it can physically unable the connection by ruining the cables . This can also happen because of interface mulfunctioning.",
+                  "mitigation": "protecting the LAN access by ensuring protection from unauthorized entity + NIDS + periodict cable and interface maintenance ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 89,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 2,
+                "denialOfService": 3
+              }
             },
             "labels": [
-              "Data Flow"
+              "PoseidonX position\n"
             ],
             "id": "7a069a1d-f677-4ddb-82f4-fba397581cc8",
             "source": {
@@ -5249,6 +5241,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 85
+    "threatTop": 89
   }
 }
