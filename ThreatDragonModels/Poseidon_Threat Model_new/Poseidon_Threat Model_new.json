@@ -636,11 +636,11 @@
             },
             "attrs": {
               "text": {
-                "text": "AIS"
+                "text": " AIS"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -732,17 +732,91 @@
             "id": "8f7b0398-04ef-43e2-80e8-8c8333fc44e1",
             "data": {
               "type": "tm.Process",
-              "name": " ",
+              "name": " AIS",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "f67dbe43-45bb-4ab8-a9cc-60c6fb4fa1e2",
+                  "title": "AIS communication Spoofing",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "VHF lacks of inegrity and authentication. Thus, an attacker can imitate another vessel to trick the PoseidonX into belivieng there is  or there is not an immidiet ship in a certain position.",
+                  "mitigation": "implement also the usage of radar to double check ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 77,
+                  "score": ""
+                },
+                {
+                  "id": "b7919582-d8c3-4e5d-8d39-c56d029b1b47",
+                  "title": "AIS communcation tampering ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "if an attacker has physical access to the AIS receiver , it can modify its setting.",
+                  "mitigation": "tamper evident cabling + nids+ unauthorized access protection from physical and LAN attacks",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 78,
+                  "score": ""
+                },
+                {
+                  "id": "2872cd0e-2df1-4501-8937-fb2cdec39f8f",
+                  "title": "AIS NO logs ",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "As VHF lacks of authenticity and logging, it is not possible to verify who is the author of a certain message. Thus, an attacker could imitate a certain ship, and that ship has no way to repudiate the attacker actions.",
+                  "mitigation": "as the channel is meant to be public applying authentication process would distrupt the nature of this communication",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 79,
+                  "score": ""
+                },
+                {
+                  "id": "63c2e36e-cb1c-4b37-88d7-1aa663e4031f",
+                  "title": "AIS Broadcast publicy ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "AIS broadcastes our ship position constantly and this result in unknow receivers to acknowledge our psoition which might result in a privacy issue related to security of our ship.",
+                  "mitigation": "no possible as this is the purpouse of the communication",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 80,
+                  "score": ""
+                },
+                {
+                  "id": "088c8644-f6f0-4351-ac7a-172719e016c3",
+                  "title": "AIS Flooding",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "if an attacker floods our ais receiver with a multitude of messages our systing will  be overwelmed and will not porcess the proper  information correclty ( ex other vessels)  ",
+                  "mitigation": "set a limited rate for incoming messages + use of radar in case of flood ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 81,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -964,14 +1038,7 @@
                 "elevationOfPrivilege": 4
               }
             },
-            "children": [],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
-            }
+            "children": []
           },
           {
             "position": {
@@ -1730,100 +1797,6 @@
             "labels": [
               "Data Flow"
             ],
-            "id": "dcf9e577-6efc-4d7f-8e85-ea639db4bc53",
-            "source": {
-              "cell": "8f7b0398-04ef-43e2-80e8-8c8333fc44e1",
-              "port": "4f3399f7-3bf4-41c8-80c7-7dd04a1137c4"
-            },
-            "target": {
-              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
-              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "8d14ec12-2b33-48fc-afd7-c1ffc2d9c44c",
-            "source": {
-              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
-              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
-            },
-            "target": {
-              "cell": "8f7b0398-04ef-43e2-80e8-8c8333fc44e1",
-              "port": "4f3399f7-3bf4-41c8-80c7-7dd04a1137c4"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
             "id": "0cd0315f-0193-4bfe-ace8-a5ebe27b6899",
             "source": {
               "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
@@ -2000,7 +1973,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2021,13 +1995,45 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": true,
               "protocol": "VHF",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "dd8f29fb-b57a-47cd-b896-f2aa3dbc66ee",
+                  "title": "Vessels Position eavesdropping",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "as VHF radio does not provide encryption and it is meant to allow to  publicy disclose immediate ship position, an attacker can exploit this communication to eavesdrop.",
+                  "mitigation": "no mitigation as is meant to be public for security reason ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 72,
+                  "score": ""
+                },
+                {
+                  "id": "2b422022-cca4-4dd1-87a7-63031cea2e1c",
+                  "title": "VHF Jammig",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "as VHF radio is public and lacks of authentication, it can suffer from frquency jamming: an attacker can continuously occupy the frequency related to a specific channel to avoid other ships to engage with the communication ",
+                  "mitigation": "anti-jamming antenna ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 73,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "VHF radio"
@@ -2186,7 +2192,12 @@
               "cell": "54290f6e-f092-49ae-96de-484290196ec8",
               "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 1130,
+                "y": 270
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -3142,6 +3153,108 @@
               "port": "c620cd4d-8e9b-46ce-97dd-d5789d35735f"
             },
             "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Vessles Position Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "87732191-a8aa-456c-8394-761195905863",
+                  "title": "Vessel Position Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "If an attacker has physical access to the connection or can modify it by accessing to the LAN, it can modify the data, letting the navigation system work with erroneus data. ",
+                  "mitigation": "protecting the LAN access by ensuring protection from unauthorized entity + NIDS + ensuring the communciation is authenticated and only between NavUnit and AIS ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 74,
+                  "score": ""
+                },
+                {
+                  "id": "cc120f67-1108-47f6-9f25-3fa710419df5",
+                  "title": "Vessel Position  disclousure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "an attacker with physical acces to the connection or via LAN access, can listen the data about ships's positions. ",
+                  "mitigation": "provide encryption and authentication  + NIDS to avoid unauthorized accesses + tamper evident connection \n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 75,
+                  "score": ""
+                },
+                {
+                  "id": "0b00a29d-4da2-4dd3-a2a6-51c11e2689ec",
+                  "title": "Vessel Position DoS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "If an attacker has physical access to the connection or can modify it by accessing to the LAN, it can physically unable the connection by ruining the cables . This can also happen because of interface mulfunctioning.",
+                  "mitigation": "protecting the LAN access by ensuring protection from unauthorized entity + NIDS + periodict cable and interface maintenance ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 76,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "Vessles Position Data Flow"
+            ],
+            "id": "fb3e66bc-b033-4f09-aa6a-02355c15b8d7",
+            "source": {
+              "cell": "8f7b0398-04ef-43e2-80e8-8c8333fc44e1",
+              "port": "4f3399f7-3bf4-41c8-80c7-7dd04a1137c4"
+            },
+            "target": {
+              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
+              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
+            },
+            "vertices": [
+              {
+                "x": 680,
+                "y": 410
+              },
+              {
+                "x": 660,
+                "y": 430
+              }
+            ]
           },
           {
             "position": {
@@ -5093,6 +5206,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 71
+    "threatTop": 81
   }
 }
