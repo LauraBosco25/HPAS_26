@@ -1085,9 +1085,9 @@
                 "spoofing": 1,
                 "tampering": 4,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 1,
-                "elevationOfPrivilege": 4
+                "elevationOfPrivilege": 5
               }
             },
             "children": []
@@ -1817,167 +1817,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "f8e3948b-b652-4d79-a5a8-5dbef4e77e8d",
-            "source": {
-              "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
-            },
-            "target": {
-              "cell": "7a1802d2-bc48-4b3f-b429-8268b2b47ada",
-              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "d15a941d-4779-4917-b2f1-a1ccd486694f",
-            "source": {
-              "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
-            },
-            "target": {
-              "cell": "7a1802d2-bc48-4b3f-b429-8268b2b47ada",
-              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "1a554881-6688-4771-a074-66eb76ef1e63",
-                  "title": "TCP Packet Tampering",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "Absent robust end-to-end encryption over the VSAT link, attackers may alter packets in transit, potentially modifying waypoints or falsifying LiDAR sensor telemetry.",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 42,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [],
-              "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 0,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "dc4a895e-3e65-426a-9281-61bf89af7adb",
-            "source": {
-              "cell": "7a1802d2-bc48-4b3f-b429-8268b2b47ada",
-              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
-            },
-            "target": {
-              "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
                 "targetMarker": {
@@ -2176,13 +2015,26 @@
                   "new": false,
                   "number": 64,
                   "score": ""
+                },
+                {
+                  "id": "5976039b-45fd-4796-8fa0-2177802fa8f8",
+                  "title": "TCP packet tampering",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Absent robust end-to-end encryption over the VSAT link, attackers may alter packets in transit, potentially modifying waypoints or falsifying LiDAR sensor telemetry.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 90,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 2,
-                "denialOfService": 2
+                "tampering": 3,
+                "informationDisclosure": 3,
+                "denialOfService": 3
               }
             },
             "labels": [
@@ -3246,6 +3098,180 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "d15a941d-4779-4917-b2f1-a1ccd486694f",
+            "source": {
+              "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
+              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
+            },
+            "target": {
+              "cell": "7a1802d2-bc48-4b3f-b429-8268b2b47ada",
+              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "f8e3948b-b652-4d79-a5a8-5dbef4e77e8d",
+            "source": {
+              "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
+              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
+            },
+            "target": {
+              "cell": "7a1802d2-bc48-4b3f-b429-8268b2b47ada",
+              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "1a554881-6688-4771-a074-66eb76ef1e63",
+                  "title": "External Dos",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "A Distributed Denial of Service attack from the internet targeting the ship's public IP, saturating the VSAT bandwidth\n",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": ""
+                },
+                {
+                  "id": "93e8cfe6-75f7-4616-8467-a35d7014b769",
+                  "title": "Malicius code injection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Injecting malware into unencrypted HTTP traffic requested by the crew, potentially compromising devices that share the ship's physical infrastructure.\n",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 91,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 3,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "dc4a895e-3e65-426a-9281-61bf89af7adb",
+            "source": {
+              "cell": "7a1802d2-bc48-4b3f-b429-8268b2b47ada",
+              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
+            },
+            "target": {
+              "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
+              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
+            },
+            "vertices": []
+          },
+          {
             "position": {
               "x": 82.74999999999955,
               "y": 54
@@ -3746,8 +3772,8 @@
           },
           {
             "position": {
-              "x": 1399,
-              "y": 69.00000000000006
+              "x": 1485.75,
+              "y": 114
             },
             "size": {
               "width": 112.5,
@@ -5241,6 +5267,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 89
+    "threatTop": 92
   }
 }
