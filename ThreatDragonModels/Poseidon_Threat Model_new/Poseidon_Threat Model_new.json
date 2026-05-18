@@ -1966,7 +1966,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "VSAT Private channel ",
+              "name": "VSAT  Private channel ",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -2038,7 +2038,7 @@
               }
             },
             "labels": [
-              "VSATPrivate channel "
+              "VSAT  Private channel "
             ],
             "id": "6ff253b0-a984-4a65-aa9a-657672aa4bbc",
             "source": {
@@ -3101,100 +3101,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "d15a941d-4779-4917-b2f1-a1ccd486694f",
-            "source": {
-              "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
-            },
-            "target": {
-              "cell": "7a1802d2-bc48-4b3f-b429-8268b2b47ada",
-              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "f8e3948b-b652-4d79-a5a8-5dbef4e77e8d",
-            "source": {
-              "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
-            },
-            "target": {
-              "cell": "7a1802d2-bc48-4b3f-b429-8268b2b47ada",
-              "port": "e498fbea-20d0-4667-ad6d-aab64190136a"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
                 "targetMarker": {
@@ -3269,7 +3175,12 @@
               "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
               "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 1430,
+                "y": 260
+              }
+            ]
           },
           {
             "position": {
@@ -3772,8 +3683,8 @@
           },
           {
             "position": {
-              "x": 1485.75,
-              "y": 114
+              "x": 1380.25,
+              "y": 34
             },
             "size": {
               "width": 112.5,
