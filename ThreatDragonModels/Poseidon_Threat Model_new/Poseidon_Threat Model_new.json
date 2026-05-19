@@ -1326,8 +1326,8 @@
                 "text": "Ballast & Steering\nController \n"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1424,12 +1424,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "e114284e-26d7-43be-86ab-7d03dcc0011f",
+                  "title": "AI captain impersonification",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "By spoofing the MAC or IP identity of the Linux-based AI Captain process.",
+                  "mitigation": "By deploying an Intrusion Prevention System on the switch to detect unauthorized MAC or IP address reuse.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 98,
+                  "score": ""
+                },
+                {
+                  "id": "ce47b159-fabf-4722-9196-b5414f1a81de",
+                  "title": "Physical tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "By making unauthorized adjustments to the vessel's water distribution and stabilization mechanism",
+                  "mitigation": "By enforcing a two person rule physical access policies for the engine room to mitigate insider threat risks.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 99,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1770,7 +1805,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1791,13 +1827,71 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "d1c6ad08-36cf-435f-8439-5859d4469078",
+                  "title": "Packet injection",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "By injecting unauthorized wireless data packets directly into the broadcast spectrum.",
+                  "mitigation": "By enabling strict wireless client isolation to completely prevent connected devices from interacting or injecting packets into one another.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 105,
+                  "score": ""
+                },
+                {
+                  "id": "8c66d61c-3f80-47a1-bd96-4dbc00f538da",
+                  "title": "Eavesdropping",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "By monitoring the private web browsing traffic, personal communications, and unencrypted session tokens of the crew",
+                  "mitigation": "By mandating the use of secure application layer encryption protocols like HTTPS, SSH, or VPNs for all connected devices.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 106,
+                  "score": ""
+                },
+                {
+                  "id": "c3b039ce-b5f3-4a1c-9fe1-e0726f5f391c",
+                  "title": "Signal jamming",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "By deploying a physical radio jamming device near the vessel's living quarters to flood the 2.4 GHz or 5 GHz wireless channels.",
+                  "mitigation": "By utilizing dual band or tri band access points that dynamically shift traffic across 2.4 GHz, 5 GHz, and 6 GHz spectrums.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 107,
+                  "score": ""
+                },
+                {
+                  "id": "36a25107-2ce8-4b4d-b6fc-678b73727206",
+                  "title": "De-auth attack",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Denial of service",
+                  "description": "By spoofing the MAC address of the wireless access point to transmit de-authentication frames over the air.",
+                  "mitigation": "By deploying a Wireless Intrusion Prevention System to actively detect and flag abnormal spikes in de-authentication frames.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 108,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 2
+              }
             },
             "labels": [
               "Data Flow"
@@ -2521,7 +2615,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2542,13 +2637,58 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "e612ada4-9643-4017-ae1a-cafec22a8a71",
+                  "title": "Man in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "By physically placing an unauthorized device between the AI Captain and the controllers.",
+                  "mitigation": "By implementing static ARP tables on both the AI Captain and the controllers to prevent ARP poisoning attacks.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 100,
+                  "score": ""
+                },
+                {
+                  "id": "e6a72c41-0292-49d7-8968-1af51e38fb87",
+                  "title": "Packet flooding",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "By consuming all available network bandwidth between the AI Captain and the controllers.",
+                  "mitigation": "By implementing rate limiting policies to drop network traffic that exceeds a specified packet per second threshold.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 101,
+                  "score": ""
+                },
+                {
+                  "id": "87a74fbe-87eb-4af5-9f8e-d4d276c7cf1f",
+                  "title": "Packet sniffing",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "By attaching an unauthorized device to a physical port on the internal Ethernet switch.",
+                  "mitigation": "By disabling unused physical ports on the internal Ethernet switch to prevent unauthorized hardware attachments.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 102,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "Ethernet"
@@ -2568,7 +2708,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2589,13 +2730,84 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "bdccad14-b34e-45bb-ac55-62f9217fe905",
+                  "title": "Signal jamming",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "By deploying a physical radio jamming device near the vessel to flood the 2.4 GHz wireless channel.",
+                  "mitigation": "By implementing channel hopping, allowing the system to switch to a cleaner radio channel if a high signal-to-noise ratio is detected.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 93,
+                  "score": ""
+                },
+                {
+                  "id": "d70314a1-d414-4309-8df7-a50e63114bef",
+                  "title": "Eavesdropping",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "By deploying a wireless packet sniffer within radio range of the vessel to capture traffic.",
+                  "mitigation": "By utilizing unique cryptographic codes on each reefer sensor for pairing.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 94,
+                  "score": ""
+                },
+                {
+                  "id": "6a2c27d6-ca1a-4bbf-887a-4adefa34ff94",
+                  "title": "Battery exhaustion",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "By forcing the low power container sensors to continuously stay in an active, high-drain state.",
+                  "mitigation": "By implementing rate limiting on the Zigbee Gateway to ignore repeating broadcast requests.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 95,
+                  "score": ""
+                },
+                {
+                  "id": "e33b0b33-c6ce-46bb-bed5-9c1531deb177",
+                  "title": "Tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "By altering the temperature or humidity data payload before it reaches the ship's network.",
+                  "mitigation": "By using frame counters in the network layer to detect and reject altered or out of order packets.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 96,
+                  "score": ""
+                },
+                {
+                  "id": "23c89e5c-7b99-4623-a22e-ea0e4907add1",
+                  "title": "Network flooding",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Denial of service",
+                  "description": "By overwhelming the central Zigbee Gateway with continuous packets.",
+                  "mitigation": "By implementing rate limiting features on the Zigbee Gateway to drop traffic exceeding a packet threshold.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 97,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 3
+              }
             },
             "labels": [
               "Data Flow"
@@ -2609,7 +2821,12 @@
               "cell": "0904f1b9-2dc3-45e6-b31f-e0edc2c2996f",
               "port": "990610a2-b14a-4ba5-8353-33e635a2d45d"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 792.75,
+                "y": 1390
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -3578,8 +3795,8 @@
                 "text": "Crew User\n (VLAN) \n"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -3676,9 +3893,40 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "92518b96-2483-4645-a8c4-cc71e20bf476",
+                  "title": "Crew member impersonification",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "By an unauthorized actor stealing legitimate crew credentials, session tokens, or personal devices.",
+                  "mitigation": "By enforcing strict multi factor authentication for all crew accounts and system access portals.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 103,
+                  "score": ""
+                },
+                {
+                  "id": "fa66ecd1-143d-4c0a-8ac2-410771cc2726",
+                  "title": "Repudiation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "By performing unauthorized configuration modifications or sending malicious requests from a crew device.",
+                  "mitigation": "By forwarding all crew network connection logs and authentication to an external system via SatLink.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 104,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -5178,6 +5426,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 92
+    "threatTop": 108
   }
 }
