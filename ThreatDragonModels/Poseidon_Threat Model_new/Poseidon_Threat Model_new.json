@@ -19,6 +19,66 @@
         "cells": [
           {
             "position": {
+              "x": 1321.5,
+              "y": 995
+            },
+            "size": {
+              "width": 230,
+              "height": 230
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "373cca65-f338-4299-af28-0df098bb224b",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "d566d1ff-3ea6-4858-804e-e69c0940aeb2",
+                "6b37f85b-08bb-49f9-b9b8-b1c17b572aa4"
+              ],
+              "containedElements": [
+                "ba4fbc79-6d46-4a8b-93fb-f9bf5679d6a7"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 1194,
+              "y": 595.0000000000026
+            },
+            "size": {
+              "width": 570,
+              "height": 190
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "d72b7e95-3578-417e-abdd-39d90a907b52",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "30aa3689-3253-4249-879e-a6d56627698b",
+                "cd740342-ef5f-4622-89dd-3eeb19b64891",
+                "b2f03e2f-1347-47a2-9079-384bec48c364",
+                "6b37f85b-08bb-49f9-b9b8-b1c17b572aa4",
+                "04bdaabf-5821-4ee0-bef8-8caa3f7bbe88"
+              ],
+              "containedElements": [
+                "1831190f-a9bc-4738-aadf-8094bc31394d",
+                "a8cdf1ca-5595-4cfb-a142-2e8202776be1"
+              ]
+            }
+          },
+          {
+            "position": {
               "x": 741.75,
               "y": 655
             },
@@ -1589,8 +1649,8 @@
           },
           {
             "position": {
-              "x": 1190.25,
-              "y": 1025
+              "x": 1380.25,
+              "y": 1050
             },
             "size": {
               "width": 80,
@@ -1886,7 +1946,9 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": [],
+              "trustBoundaryIds": [
+                "373cca65-f338-4299-af28-0df098bb224b"
+              ],
               "threatFrequency": {
                 "tampering": 1,
                 "informationDisclosure": 1,
@@ -2327,7 +2389,9 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "d72b7e95-3578-417e-abdd-39d90a907b52"
+              ]
             },
             "labels": [
               "Data Flow"
@@ -2402,7 +2466,9 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": [],
+              "trustBoundaryIds": [
+                "d72b7e95-3578-417e-abdd-39d90a907b52"
+              ],
               "threatFrequency": {
                 "tampering": 0,
                 "informationDisclosure": 1,
@@ -2501,7 +2567,9 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "d72b7e95-3578-417e-abdd-39d90a907b52"
+              ]
             },
             "labels": [
               "Data Flow"
@@ -2548,7 +2616,10 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "373cca65-f338-4299-af28-0df098bb224b",
+                "d72b7e95-3578-417e-abdd-39d90a907b52"
+              ]
             },
             "labels": [
               "Data Flow"
@@ -2595,7 +2666,9 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "d72b7e95-3578-417e-abdd-39d90a907b52"
+              ]
             },
             "labels": [
               "Data Flow"
@@ -3783,8 +3856,8 @@
           },
           {
             "position": {
-              "x": 1084,
-              "y": 1303
+              "x": 1400,
+              "y": 1260
             },
             "size": {
               "width": 112.5,
