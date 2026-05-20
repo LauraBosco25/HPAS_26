@@ -158,8 +158,8 @@
                 "d5a061eb-d941-4a2c-9b28-8273f1cd4a14",
                 "bf8392b7-b987-4b03-bd29-dae1bfbc2630",
                 "04bdaabf-5821-4ee0-bef8-8caa3f7bbe88",
-                "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b",
-                "d62fbc5b-7566-40a3-8c77-6f13a211dcc2"
+                "d62fbc5b-7566-40a3-8c77-6f13a211dcc2",
+                "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b"
               ],
               "containedElements": [
                 "b68443a8-284a-4c2b-afaf-f9fce74906f9",
@@ -229,8 +229,8 @@
           },
           {
             "position": {
-              "x": 13.99999999999875,
-              "y": 164.00000000000375
+              "x": 18,
+              "y": 174.00000000000375
             },
             "size": {
               "width": 1210,
@@ -250,8 +250,8 @@
                 "69a40e7a-3f3e-45fd-86ef-cc12912eb9c6",
                 "d5a061eb-d941-4a2c-9b28-8273f1cd4a14",
                 "f6d92e3c-6a3a-4e21-8879-a69902e7a9f7",
-                "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b",
-                "f64302b3-292f-4f78-bcda-2e08173fdfd8"
+                "f64302b3-292f-4f78-bcda-2e08173fdfd8",
+                "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b"
               ],
               "containedElements": [
                 "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
@@ -445,15 +445,80 @@
                   "new": false,
                   "number": 20,
                   "score": ""
+                },
+                {
+                  "id": "e17a35c0-d955-453f-beed-65cfd3a8bf59",
+                  "title": "NavUnit Communication Spoofed",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Attacker can spoof the navunit identity letting the ai captain belive he is the authetic navigation unit. ",
+                  "mitigation": "authentication + logging to ensure mutual authentication ( implement handshake) ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 121,
+                  "score": ""
+                },
+                {
+                  "id": "890f0efa-dcdf-42c8-a462-d74d11d356df",
+                  "title": "AI logic currupted by tampered ECDIS",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "AI model could received false data by a navigation unit whose ecdis system has been tampered",
+                  "mitigation": "cross validating navigation info from other senors  and receivers for double checking ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 122,
+                  "score": ""
+                },
+                {
+                  "id": "88ba89a8-04de-4e41-a975-fda238cbd408",
+                  "title": "NO audit of NavUnit info",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "if the LAN and the DB  is not implemented to provide loggigin, it is not possible to recognize who is the author or the reader of a certain data. thus it is not possible to say who is responsible : if the ai captain made an error or if the navunit has given faulty data",
+                  "mitigation": "provide NIDS+ LAN security with logging",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 123,
+                  "score": ""
+                },
+                {
+                  "id": "c1964a1f-dc71-432d-8d6a-0910a122a0df",
+                  "title": "AI Captain vulnerability ",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "attacker can exploit parser vulnerability by injecting malicious code into the received data so when executed it will provide an elevetion of priviledge ( such as controll over linux system, buffer overlfow...)",
+                  "mitigation": "ensure parser safety ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 124,
+                  "score": ""
+                },
+                {
+                  "id": "9ad1e056-6671-4ef5-a6ca-cf0dfe9cb7a9",
+                  "title": "Navigation Info Eavesdropping",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "if the attacker is able to listen to the communciation between navunit - ai captain an extrapolate important navigation info and decision ",
+                  "mitigation": "encrypting communication + LAN NIDS + authentication over lan ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 125,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 2,
-                "tampering": 1,
-                "repudiation": 3,
-                "informationDisclosure": 1,
+                "spoofing": 3,
+                "tampering": 2,
+                "repudiation": 4,
+                "informationDisclosure": 2,
                 "denialOfService": 1,
-                "elevationOfPrivilege": 0
+                "elevationOfPrivilege": 1
               }
             }
           },
@@ -3066,103 +3131,6 @@
                   "name": "block"
                 },
                 "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "22c83c1a-31b0-4c2e-91c8-43cc72237e2c",
-                "25c9f4e7-f963-464a-94da-39989f2d3cb1"
-              ]
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b",
-            "source": {
-              "cell": "b68443a8-284a-4c2b-afaf-f9fce74906f9",
-              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
-            },
-            "target": {
-              "cell": "67bc2611-7f4c-41e5-83f8-292cdf5f12e9",
-              "port": "2ec14387-bcd5-4fca-8916-ab024766e993"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "c926d9ed-3890-4665-bd60-cbb30a11f989",
-            "source": {
-              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
-              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
-            },
-            "target": {
-              "cell": "67bc2611-7f4c-41e5-83f8-292cdf5f12e9",
-              "port": "2ec14387-bcd5-4fca-8916-ab024766e993"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
                   "name": "block"
                 },
                 "strokeDasharray": null
@@ -3669,16 +3637,6 @@
             "target": {
               "x": 1010,
               "y": 540
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
             }
           },
           {
@@ -3814,6 +3772,200 @@
               "x": 1270,
               "y": 980
             }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "5d876ce2-fca5-482a-92b6-6a3679dc75ec",
+                  "title": "Malicious code Injection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "attacker could inject malicious code that once read by navUnit would infect the system",
+                  "mitigation": "intruision detection on LAN + NIDS ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 109,
+                  "score": ""
+                },
+                {
+                  "id": "67a06ee9-0bdf-41fe-8eff-80f9463fdbd2",
+                  "title": "eavesdropping navigation charts",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "if the LAN and the DB  is not implemented to provide loggigin, it is not possible to recognize who is the author or the reader of a certain data ",
+                  "mitigation": "provide NIDS+ LAN security with logging",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 116,
+                  "score": ""
+                },
+                {
+                  "id": "3b92cd3c-859c-4dc1-a867-5ce11b1a94f8",
+                  "title": "Connection with db flood",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "attacker floods the db with multiple request or query, so that our system is not able to access the navigation charts.",
+                  "mitigation": "request rate limitation on DB write access + WORM memory (or read only) ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 117,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "c926d9ed-3890-4665-bd60-cbb30a11f989",
+            "source": {
+              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
+              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
+            },
+            "target": {
+              "cell": "67bc2611-7f4c-41e5-83f8-292cdf5f12e9",
+              "port": "2ec14387-bcd5-4fca-8916-ab024766e993"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "284028d3-106c-4dc7-af3e-53122056a046",
+                  "title": "Communication with DB tampered",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "attacker with access (remote or physical) to the LAN is able to intercept the communication between DB of navigation charts and AI captain: thus, the attacker can inject the communication with false and malicious data",
+                  "mitigation": "NIDS + atuthentication and logging between two components + only read during travel + update of the charts only at authorized base ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 118,
+                  "score": ""
+                },
+                {
+                  "id": "e7430814-5624-4f97-8a75-63d75476a5dd",
+                  "title": "info eavesdropping",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "attacker with access to LAN that does not ensure logging or encryption can listen though this channel.",
+                  "mitigation": "as this are not striclty confidential data, we might just implement encryption\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 119,
+                  "score": ""
+                },
+                {
+                  "id": "7dab0709-76ef-46c2-9293-e0680439d086",
+                  "title": "request and query flood ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "attacker with access to LAN can flood the navigation db with request and query. thus the ai captain request for navigation chart data will not be responded",
+                  "mitigation": "request/query rate limted + only read + backup db",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 120,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "22c83c1a-31b0-4c2e-91c8-43cc72237e2c",
+                "25c9f4e7-f963-464a-94da-39989f2d3cb1"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 2
+              }
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b",
+            "source": {
+              "cell": "b68443a8-284a-4c2b-afaf-f9fce74906f9",
+              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
+            },
+            "target": {
+              "cell": "67bc2611-7f4c-41e5-83f8-292cdf5f12e9",
+              "port": "2ec14387-bcd5-4fca-8916-ab024766e993"
+            },
+            "vertices": [
+              {
+                "x": 910,
+                "y": 600
+              }
+            ]
           },
           {
             "position": {
@@ -5608,11 +5760,13 @@
                 "text": "Nautical Charts DB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -5709,13 +5863,98 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "6651ddc9-3c02-405f-95a8-12693bab6d2d",
+                  "title": "Malicious code Injection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "attacker could inject malicious code by tampering  that once read by navUnit would infect the system",
+                  "mitigation": "intruision detection on LAN + NIDS ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 110,
+                  "score": ""
+                },
+                {
+                  "id": "232c6799-e4e5-434a-842e-9468cf6b0aa0",
+                  "title": "Info Eavesdropping",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "if the attacker is able to listen and the DB data in not encrypted it can access to raw data",
+                  "mitigation": "not foundamental as this are navigation charts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 111,
+                  "score": ""
+                },
+                {
+                  "id": "444d8155-21c1-43f7-a3ef-45978a7fa616",
+                  "title": "Malicious code Injection",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "attacker could inject malicious code by tampering  that once read by navUnit would infect the system. critical during update of navigation charts",
+                  "mitigation": "intruision detection on LAN + NIDS ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 112,
+                  "score": ""
+                },
+                {
+                  "id": "db2f4c01-fef2-417a-be61-140c44082370",
+                  "title": "Unauthorized Access ",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "if the LAN and the DB  is not implemented to provide loggigin, it is not possible to recognize who is the author or the reader of a certain data ",
+                  "mitigation": "provide NIDS+ LAN security with logging",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 113,
+                  "score": ""
+                },
+                {
+                  "id": "13e6295d-b348-4bbb-a50f-9354031b27a6",
+                  "title": "Info Eavesdropping",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "if the attacker is able to listen and the DB data in not encrypted it can access to raw data",
+                  "mitigation": "not foundamental as this are navigation charts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": ""
+                },
+                {
+                  "id": "1004ccfb-5508-44cf-9c63-4c7e44339ebf",
+                  "title": "DB flood",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "attacker floods the db with multiple request, so that our system is not able to access the navigation charts.",
+                  "mitigation": "request rate limitation on DB write access + WORM memory (or read only) ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 115,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 1
+              }
             }
           },
           {
@@ -5849,6 +6088,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 108
+    "threatTop": 125
   }
 }
