@@ -79,6 +79,70 @@
           },
           {
             "position": {
+              "x": 1162,
+              "y": 223.00000000000136
+            },
+            "size": {
+              "width": 330,
+              "height": 190
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "c7acc0f5-b875-4eb8-bf1b-dc305c300361",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "6ff253b0-a984-4a65-aa9a-657672aa4bbc",
+                "30aa3689-3253-4249-879e-a6d56627698b",
+                "cd740342-ef5f-4622-89dd-3eeb19b64891",
+                "dc4a895e-3e65-426a-9281-61bf89af7adb"
+              ],
+              "containedElements": [
+                "c230708f-c7ec-47e7-a1e4-48d567aac476"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 987,
+              "y": 9.00000000000037
+            },
+            "size": {
+              "width": 250,
+              "height": 130
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "078544c7-cecb-4ff7-b8ff-f9b52c10192e",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "6ff253b0-a984-4a65-aa9a-657672aa4bbc"
+              ],
+              "containedElements": [
+                "54290f6e-f092-49ae-96de-484290196ec8"
+              ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
+            }
+          },
+          {
+            "position": {
               "x": 741.75,
               "y": 655
             },
@@ -933,8 +997,8 @@
           },
           {
             "position": {
-              "x": 1270.25,
-              "y": 345
+              "x": 1290,
+              "y": 255
             },
             "size": {
               "width": 110,
@@ -2186,7 +2250,10 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": [],
+              "trustBoundaryIds": [
+                "c7acc0f5-b875-4eb8-bf1b-dc305c300361",
+                "078544c7-cecb-4ff7-b8ff-f9b52c10192e"
+              ],
               "threatFrequency": {
                 "tampering": 3,
                 "informationDisclosure": 3,
@@ -2207,8 +2274,8 @@
             },
             "vertices": [
               {
-                "x": 1130,
-                "y": 270
+                "x": 1200,
+                "y": 200
               }
             ]
           },
@@ -2390,7 +2457,8 @@
               "protocol": "",
               "threats": [],
               "trustBoundaryIds": [
-                "d72b7e95-3578-417e-abdd-39d90a907b52"
+                "d72b7e95-3578-417e-abdd-39d90a907b52",
+                "c7acc0f5-b875-4eb8-bf1b-dc305c300361"
               ]
             },
             "labels": [
@@ -2467,7 +2535,8 @@
                 }
               ],
               "trustBoundaryIds": [
-                "d72b7e95-3578-417e-abdd-39d90a907b52"
+                "d72b7e95-3578-417e-abdd-39d90a907b52",
+                "c7acc0f5-b875-4eb8-bf1b-dc305c300361"
               ],
               "threatFrequency": {
                 "tampering": 0,
@@ -3446,7 +3515,9 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": [],
+              "trustBoundaryIds": [
+                "c7acc0f5-b875-4eb8-bf1b-dc305c300361"
+              ],
               "threatFrequency": {
                 "tampering": 3,
                 "informationDisclosure": 0,
@@ -3467,8 +3538,12 @@
             },
             "vertices": [
               {
-                "x": 1430,
-                "y": 260
+                "x": 1396.25,
+                "y": 180
+              },
+              {
+                "x": 1390,
+                "y": 180
               }
             ]
           },
@@ -3708,8 +3783,8 @@
           },
           {
             "position": {
-              "x": 924,
-              "y": 74.00000000000006
+              "x": 1055,
+              "y": 39
             },
             "size": {
               "width": 110,
