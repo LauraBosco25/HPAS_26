@@ -79,8 +79,8 @@
           },
           {
             "position": {
-              "x": 1162,
-              "y": 223.00000000000136
+              "x": 1542,
+              "y": 253.00000000000136
             },
             "size": {
               "width": 330,
@@ -109,8 +109,8 @@
           },
           {
             "position": {
-              "x": 987,
-              "y": 9.00000000000037
+              "x": 1365,
+              "y": 34.00000000000006
             },
             "size": {
               "width": 250,
@@ -1083,8 +1083,8 @@
           },
           {
             "position": {
-              "x": 1290,
-              "y": 255
+              "x": 1670,
+              "y": 285
             },
             "size": {
               "width": 110,
@@ -2367,8 +2367,8 @@
             },
             "vertices": [
               {
-                "x": 1200,
-                "y": 200
+                "x": 1600,
+                "y": 260
               }
             ]
           },
@@ -3636,18 +3636,19 @@
             },
             "target": {
               "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
+              "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
             },
-            "vertices": [
-              {
-                "x": 1396.25,
-                "y": 180
-              },
-              {
-                "x": 1390,
-                "y": 180
-              }
-            ]
+            "vertices": [],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "position": {
@@ -3881,12 +3882,19 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
             "position": {
-              "x": 1055,
-              "y": 39
+              "x": 1435,
+              "y": 69
             },
             "size": {
               "width": 110,
@@ -4181,8 +4189,8 @@
           },
           {
             "position": {
-              "x": 1380.25,
-              "y": 34
+              "x": 1810.25,
+              "y": 54
             },
             "size": {
               "width": 112.5,
