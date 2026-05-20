@@ -28,8 +28,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "373cca65-f338-4299-af28-0df098bb224b",
             "zIndex": -1,
+            "id": "373cca65-f338-4299-af28-0df098bb224b",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -56,8 +56,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "d72b7e95-3578-417e-abdd-39d90a907b52",
             "zIndex": -1,
+            "id": "d72b7e95-3578-417e-abdd-39d90a907b52",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -88,8 +88,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "c7acc0f5-b875-4eb8-bf1b-dc305c300361",
             "zIndex": -1,
+            "id": "c7acc0f5-b875-4eb8-bf1b-dc305c300361",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -118,8 +118,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "078544c7-cecb-4ff7-b8ff-f9b52c10192e",
             "zIndex": -1,
+            "id": "078544c7-cecb-4ff7-b8ff-f9b52c10192e",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -145,8 +145,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "22c83c1a-31b0-4c2e-91c8-43cc72237e2c",
             "zIndex": -1,
+            "id": "22c83c1a-31b0-4c2e-91c8-43cc72237e2c",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -178,8 +178,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "be03b117-498d-484b-be7e-ff5298924d00",
             "zIndex": -1,
+            "id": "be03b117-498d-484b-be7e-ff5298924d00",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -209,8 +209,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "ef9ac5b7-ae5f-42e1-9ea6-7de4ba903fed",
             "zIndex": -1,
+            "id": "ef9ac5b7-ae5f-42e1-9ea6-7de4ba903fed",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -3638,7 +3638,6 @@
               "cell": "c230708f-c7ec-47e7-a1e4-48d567aac476",
               "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
             },
-            "vertices": [],
             "tools": {
               "items": [
                 "boundary",
@@ -3648,7 +3647,8 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": []
           },
           {
             "position": {
