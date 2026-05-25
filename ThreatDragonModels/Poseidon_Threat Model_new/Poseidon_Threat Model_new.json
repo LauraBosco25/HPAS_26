@@ -1,5 +1,5 @@
 {
-  "version": "2.6.2",
+  "version": "2.5.0",
   "summary": {
     "title": "Poseidon_Threat Model_new",
     "owner": "",
@@ -15,7 +15,7 @@
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.6.2",
+        "version": "2.5.0",
         "cells": [
           {
             "position": {
@@ -201,7 +201,7 @@
           {
             "position": {
               "x": 410,
-              "y": 1240.0000000000014
+              "y": 1240
             },
             "size": {
               "width": 680,
@@ -1780,8 +1780,8 @@
           },
           {
             "position": {
-              "x": 758,
-              "y": 1310
+              "x": 763,
+              "y": 1300
             },
             "size": {
               "width": 70,
@@ -1792,8 +1792,8 @@
                 "text": "ZigBee \nGateway \n"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1890,12 +1890,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "7c216149-909a-4389-a8be-accc665db665",
+                  "title": "Firmware tampering",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Zigbee gateway lacks secure boot and firmware validation; an attacker with physical or network access can flash malicious firmware.",
+                  "mitigation": "Implement secure boot , require signed firmware updates, and restrict physical access to the gateway enclosure.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 129,
+                  "score": ""
+                },
+                {
+                  "id": "77a0a8e6-a371-4923-bf3a-d1c6d6874523",
+                  "title": "Physical tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker with physical access can attach debugging interfaces, extract cryptographic keys, or physically break the device",
+                  "mitigation": "Enforce tamper‑evident seals, place gateway in a locked cabinet, and monitor physical access logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 130,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1912,8 +1947,8 @@
                 "text": "Crew Wifi \n(VLAN) "
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2010,12 +2045,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "ef8b41de-0e9b-40ea-a7bf-57338054fa1e",
+                  "title": "Rogue AP",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker within range sets up a fake Wi‑Fi network with the same SSID, tricking crew members into connecting and revealing credentials or injecting malware.",
+                  "mitigation": "Use WPA3‑Enterprise with certificate validation, implement Rogue AP detection on the main router.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 136,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2139,7 +2196,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Wi-Fi",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -2213,7 +2270,7 @@
               }
             },
             "labels": [
-              "Data Flow"
+              "Wi-Fi"
             ],
             "id": "d566d1ff-3ea6-4858-804e-e69c0940aeb2",
             "source": {
@@ -2526,6 +2583,10 @@
               {
                 "x": 554.25,
                 "y": 410
+              },
+              {
+                "x": 580,
+                "y": 370
               }
             ]
           },
@@ -2580,7 +2641,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2601,13 +2663,45 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "c863f852-1cb3-4d20-9214-09e73d2090c0",
+                  "title": "Data tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker with access to the ship’s internal network can perform a man-in-the-middle attack to intercept and modify temperature records before they are stored.",
+                  "mitigation": "Network micro-segmentation and TLS encryption for data in transit.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 131,
+                  "score": ""
+                },
+                {
+                  "id": "8a65e391-6a5e-4b52-b889-7a87465c3e6a",
+                  "title": "Replay Attack",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker could capture legitimate temperature packets and replay them later to mask a real‑time incident",
+                  "mitigation": "Include a timestamp and sequence number in each record, and reject out‑of‑order messages",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 132,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "Data Flow"
@@ -2807,7 +2901,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2828,16 +2923,48 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "8c74767f-6d2c-4920-8e57-2c64456f10a8",
+                  "title": "VLAN hopping",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker on the crew Wi‑Fi VLAN exploits a misconfiguration to jump to the telemetry VLAN.",
+                  "mitigation": "Enforce VLAN access control lists and use explicit “deny” rules between VLANs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 137,
+                  "score": ""
+                },
+                {
+                  "id": "cd5828af-861d-4935-9331-2f2078f69aa4",
+                  "title": "DNS redirection",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "An attacker on the crew VLAN could send fake DNS responses to redirect crew traffic to malicious sites or intercept telemetry.",
+                  "mitigation": "Implement DNSSEC validation on the router and enable DHCP snooping to prevent rogue DNS servers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 138,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "373cca65-f338-4299-af28-0df098bb224b",
                 "d72b7e95-3578-417e-abdd-39d90a907b52"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Data Flow"
@@ -2851,7 +2978,12 @@
               "cell": "ba4fbc79-6d46-4a8b-93fb-f9bf5679d6a7",
               "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 1382,
+                "y": 850
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -3017,7 +3149,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "ZigBee",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -3104,7 +3236,7 @@
               }
             },
             "labels": [
-              "Data Flow"
+              "ZigBee"
             ],
             "id": "bbd52b0d-cf20-4d4c-8195-db20630eb2f0",
             "source": {
@@ -3655,7 +3787,8 @@
             "target": {
               "x": 680,
               "y": 1420
-            }
+            },
+            "vertices": []
           },
           {
             "shape": "trust-boundary-curve",
@@ -3689,7 +3822,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -3710,16 +3844,48 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "f1ed0a12-0218-4c89-8401-f9e179d45828",
+                  "title": "VLAN Hopping",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Because the main router separates crew Wi‑Fi and telemetry via VLAN, an attacker on the crew network could exploit double‑tagging to access the ZigBee subnet.",
+                  "mitigation": "Disable native VLAN on trunk ports and use private VLANs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 134,
+                  "score": ""
+                },
+                {
+                  "id": "2de38b9b-47e5-4303-86c0-265a3494855c",
+                  "title": "Man in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker on the same subnet as the gateway could poison ARP tables and redirect traffic to their own machine, then tamper with or drop container data.",
+                  "mitigation": "Enable Dynamic ARP Inspection on the router, static ARP entries for critical devices, and enforce HTTPS/TLS for all traffic.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 135,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "d72b7e95-3578-417e-abdd-39d90a907b52",
                 "ef9ac5b7-ae5f-42e1-9ea6-7de4ba903fed"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Data Flow"
@@ -3733,7 +3899,12 @@
               "cell": "0904f1b9-2dc3-45e6-b31f-e0edc2c2996f",
               "port": "de09cf90-b6d0-432f-bd78-2beff3cdf0c2"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 1090,
+                "y": 1010
+              }
+            ]
           },
           {
             "shape": "trust-boundary-curve",
@@ -5334,11 +5505,13 @@
                 "text": "Temperature DB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -5435,13 +5608,46 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "a31cdb0a-cf10-46ac-a393-525d26353056",
+                  "title": "SQL Injection",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker could exploit a vulnerability to execute SQL commands, reading or deleting records.",
+                  "mitigation": "Use parametrised queries and sanitise all inputs",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 139,
+                  "score": ""
+                },
+                {
+                  "id": "77c32309-1db4-4478-b405-42ad7f4a55ed",
+                  "title": "Query flooding",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "An attacker could issue a large number of complex queries to exhaust database CPU and memory, preventing legitimate writes from the ZigBee gateway.",
+                  "mitigation": "Implement query rate limiting and connection pooling with max concurrent queries.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 140,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             }
           },
           {
@@ -5924,6 +6130,19 @@
                   "new": false,
                   "number": 115,
                   "score": ""
+                },
+                {
+                  "id": "acbc66f6-2787-4df0-bb5a-8ad6796ca390",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 128,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
@@ -5936,7 +6155,7 @@
           },
           {
             "position": {
-              "x": 736.75,
+              "x": 741.75,
               "y": 1523
             },
             "size": {
@@ -6065,6 +6284,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 127
+    "threatTop": 140
   }
 }
