@@ -1,5 +1,5 @@
 {
-  "version": "2.5.0",
+  "version": "2.6.2",
   "summary": {
     "title": "Poseidon_Threat Model_new",
     "owner": "",
@@ -15,7 +15,7 @@
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.5.0",
+        "version": "2.6.2",
         "cells": [
           {
             "position": {
@@ -154,12 +154,11 @@
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [
-                "69a40e7a-3f3e-45fd-86ef-cc12912eb9c6",
-                "d5a061eb-d941-4a2c-9b28-8273f1cd4a14",
                 "bf8392b7-b987-4b03-bd29-dae1bfbc2630",
                 "04bdaabf-5821-4ee0-bef8-8caa3f7bbe88",
                 "d62fbc5b-7566-40a3-8c77-6f13a211dcc2",
-                "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b"
+                "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b",
+                "69a40e7a-3f3e-45fd-86ef-cc12912eb9c6"
               ],
               "containedElements": [
                 "b68443a8-284a-4c2b-afaf-f9fce74906f9",
@@ -247,11 +246,10 @@
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [
-                "69a40e7a-3f3e-45fd-86ef-cc12912eb9c6",
-                "d5a061eb-d941-4a2c-9b28-8273f1cd4a14",
                 "f6d92e3c-6a3a-4e21-8879-a69902e7a9f7",
                 "f64302b3-292f-4f78-bcda-2e08173fdfd8",
-                "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b"
+                "c29f4bd5-4dee-4aea-8b10-3b1417b30f5b",
+                "69a40e7a-3f3e-45fd-86ef-cc12912eb9c6"
               ],
               "containedElements": [
                 "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
@@ -699,7 +697,7 @@
                   "severity": "Critical",
                   "type": "Elevation of privilege",
                   "description": "If an attacker can access the navigation network via LAN, the interface of the ECDIS and overpass its security,  it can obtain an elevation of privilege by being able to access the navigation unit as admin level. this it can overwrite the navigation chart, position and communication DB, disabling navigation alerts...",
-                  "mitigation": "strong authentication for NavUnit management + firmware updated and verified + admin level accessible only from AI Captain or verified remote control. ",
+                  "mitigation": "strong authentication for NavUnit management + firmware updated and verified + admin level accessible only from AI Captain on shore or verified remote control. ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 38,
@@ -756,15 +754,80 @@
                   "new": false,
                   "number": 85,
                   "score": ""
+                },
+                {
+                  "id": "b6b49670-0491-47b7-9c93-7daf5bf607af",
+                  "title": "AI captain impersonation",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "attacker can spoof the communication by impersonating the ai captain. ",
+                  "mitigation": "mutual authentication over LAN ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 141,
+                  "score": ""
+                },
+                {
+                  "id": "64a33a5d-9ee0-4407-86b6-4458f82dedcf",
+                  "title": "ai communication tampered ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "if an attacker can compromise the ai captain communication by tampering it, the ecdis can be affected by malicious instruction ",
+                  "mitigation": "only read-instruction admissable by the ai captain while on route. only at safe location on shore the ai captain can update the ecdis ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 142,
+                  "score": ""
+                },
+                {
+                  "id": "c48a7234-a543-4291-a4d0-1d566d505ca5",
+                  "title": "ai captain not logged",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "as logging is not implemented on the LAN, it is not possible to verify if ai captain is responsible of a malicous request or if it just made an error.",
+                  "mitigation": "provide logging and authentication+ NIDS + wite logs in WORM with timestamps",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 143,
+                  "score": ""
+                },
+                {
+                  "id": "3a1262a2-1c83-45a2-a050-d00b46899431",
+                  "title": "ai communication not encrypted ",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "if communcation is not encrypted an attacker can eavesdrop the ai request and try to extrapolate important info regarding the route  ",
+                  "mitigation": "encryption + handshake between the two components ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 144,
+                  "score": ""
+                },
+                {
+                  "id": "1afe40f7-f694-4e75-bd71-5b12c9f2352e",
+                  "title": "AI request Flood",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "if ai captain is corrupted, it can flood the NavUnit causing a denial of service as the component will be unavailable to process other ship communication , calculate route and position.",
+                  "mitigation": "apply watch dog and request rate limit for every component",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 145,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 4,
-                "tampering": 2,
-                "repudiation": 3,
-                "informationDisclosure": 2,
-                "denialOfService": 2,
-                "elevationOfPrivilege": 2
+                "spoofing": 5,
+                "tampering": 3,
+                "repudiation": 4,
+                "informationDisclosure": 3,
+                "denialOfService": 3,
+                "elevationOfPrivilege": 3
               }
             }
           },
@@ -2079,106 +2142,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "22c83c1a-31b0-4c2e-91c8-43cc72237e2c",
-                "25c9f4e7-f963-464a-94da-39989f2d3cb1"
-              ]
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "69a40e7a-3f3e-45fd-86ef-cc12912eb9c6",
-            "source": {
-              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
-              "port": "990610a2-b14a-4ba5-8353-33e635a2d45d"
-            },
-            "target": {
-              "cell": "b68443a8-284a-4c2b-afaf-f9fce74906f9",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "22c83c1a-31b0-4c2e-91c8-43cc72237e2c",
-                "25c9f4e7-f963-464a-94da-39989f2d3cb1"
-              ]
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "d5a061eb-d941-4a2c-9b28-8273f1cd4a14",
-            "source": {
-              "cell": "b68443a8-284a-4c2b-afaf-f9fce74906f9",
-              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
-            },
-            "target": {
-              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
-              "port": "990610a2-b14a-4ba5-8353-33e635a2d45d"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
                 "targetMarker": {
@@ -2418,7 +2381,12 @@
               "cell": "b68443a8-284a-4c2b-afaf-f9fce74906f9",
               "port": "4f3399f7-3bf4-41c8-80c7-7dd04a1137c4"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 570,
+                "y": 780
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -4129,6 +4097,107 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "48c3a6f0-a636-4739-b0a5-829d85d19930",
+                  "title": "NavUint-AI communication DOS",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "If an attacker has physical access to the connection or can modify it by accessing to the LAN, it can physically unable the connection by ruining the cables . This can also happen because of interface mulfunctioning.",
+                  "mitigation": "protecting the LAN access by ensuring protection from unauthorized entity + NIDS + periodict cable and interface maintenance ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 146,
+                  "score": ""
+                },
+                {
+                  "id": "c9895ebc-6726-4d73-bbd0-786eb0fd7a46",
+                  "title": "data tampered ",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "If an attacker has physical access to the connection or can modify it by accessing to the LAN, it can modify the data, letting the navigation system and ai captain work with erroneous data.",
+                  "mitigation": "protecting the LAN access by ensuring protection from unauthorized entity + NIDS + ensuring the communciation is authenticated and only between NavUnit and ai captain",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 147,
+                  "score": ""
+                },
+                {
+                  "id": "356d49ba-ae62-400f-880d-c7310e29c9be",
+                  "title": "AI captain impersonation",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "an attacker with physical access to the connection or via LAN access, can listen to all data, request and info shared by navunit and ai captain.",
+                  "mitigation": "provide encryption and authentication  + NIDS to avoid unauthorized accesses + tamper evident connection",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 148,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "22c83c1a-31b0-4c2e-91c8-43cc72237e2c",
+                "25c9f4e7-f963-464a-94da-39989f2d3cb1"
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "69a40e7a-3f3e-45fd-86ef-cc12912eb9c6",
+            "source": {
+              "cell": "4a3233bc-8bf5-4e29-a06e-73e3276aac1d",
+              "port": "990610a2-b14a-4ba5-8353-33e635a2d45d"
+            },
+            "target": {
+              "cell": "b68443a8-284a-4c2b-afaf-f9fce74906f9",
+              "port": "381bb0a1-fbd2-4afd-beaf-51ab17ab2be5"
+            },
+            "vertices": [
+              {
+                "x": 690,
+                "y": 610
+              }
+            ]
+          },
+          {
             "position": {
               "x": 82.74999999999955,
               "y": 54
@@ -4858,7 +4927,7 @@
               "threatFrequency": {
                 "tampering": 2,
                 "informationDisclosure": 2,
-                "denialOfService": 3
+                "denialOfService": 4
               }
             },
             "labels": [
@@ -6155,8 +6224,8 @@
           },
           {
             "position": {
-              "x": 741.75,
-              "y": 1523
+              "x": 730,
+              "y": 1510
             },
             "size": {
               "width": 112.5,
@@ -6284,6 +6353,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 140
+    "threatTop": 148
   }
 }
