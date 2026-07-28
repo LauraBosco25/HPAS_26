@@ -3747,35 +3747,6 @@
             "labels": [
               "Trust Boundary"
             ],
-            "id": "dcf954e6-a153-4d05-8860-5a767fd4106b",
-            "source": {
-              "x": 680,
-              "y": 1290
-            },
-            "target": {
-              "x": 680,
-              "y": 1420
-            },
-            "vertices": []
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Trust Boundary",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "Trust Boundary"
-            ],
             "id": "020b823f-7377-4ea5-a22c-90c2a0b55591",
             "source": {
               "x": 1340,
@@ -4194,6 +4165,44 @@
               {
                 "x": 690,
                 "y": 610
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "5dffaf25-6838-4cfb-a4f4-70bd2329372e",
+            "source": {
+              "x": 560,
+              "y": 640
+            },
+            "target": {
+              "x": 590,
+              "y": 1030
+            },
+            "vertices": [
+              {
+                "x": 580,
+                "y": 730
+              },
+              {
+                "x": 580,
+                "y": 1130
               }
             ]
           },
